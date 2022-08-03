@@ -63,7 +63,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension MainViewController: MainViewModelDelegate {
-    func didLoadingData() {
+    func didLoadedData() {
         mainView.tableView.reloadData()
         mainView.activityView.stopAnimating()
     }

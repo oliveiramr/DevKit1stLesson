@@ -9,7 +9,7 @@ import Foundation
 
 protocol MainViewModelDelegate: AnyObject {
     
-    func didLoadingData()
+    func didLoadedData()
     
 }
 
@@ -21,20 +21,24 @@ class MainViewModel {
     
     func getNameList(){
         
+        var numberOfRequests = 0
+        
         for _ in 0..<10 {
             service.getData { (result: Result<Person, NetworkError>) in
                 switch result {
                 case .success(let success):
-                    
+                        
                     self.personList.append(success)
-                   self.delegate?.didLoadingData()
+                    numberOfRequests += 1
                     
+                    if numberOfRequests == 10{
+                        self.delegate?.didLoadedData()
+                    }
                 case .failure(let failure):
                     print(failure)
                 }
             }
         }
- 
     }
     
 }
