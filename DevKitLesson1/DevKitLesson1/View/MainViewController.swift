@@ -31,9 +31,14 @@ class MainViewController: UIViewController {
       
     }
     
+    @objc func reloadRequestData(){
+        mainView.activityView.startAnimating()
+        viewModel.getNameList()
+    }
+    
     private func getAlert(title: String, message: String){
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(action)
             present(alert, animated: true)
             
@@ -56,7 +61,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getAlert(title: viewModel.personList[indexPath.row].name, message: "Adress: \(viewModel.personList[indexPath.row].address)")
+        getAlert(title: viewModel.personList[indexPath.row].name,
+                 message: "Adress: \(viewModel.personList[indexPath.row].address) \n Birth Date: \(viewModel.personList[indexPath.row].birthDate) \n Company: \(viewModel.personList[indexPath.row].company) \n Phone:: \(viewModel.personList[indexPath.row].phoneH)"
+        
+        )
     }
     
 }

@@ -19,7 +19,13 @@ class MainViewModel {
     private let service = Service()
     var personList: [Person] = []
     
-    func getNameList(){
+   
+    
+    
+    
+    @objc  func getNameList(){
+        
+        personList = []
         
         var numberOfRequests = 0
         

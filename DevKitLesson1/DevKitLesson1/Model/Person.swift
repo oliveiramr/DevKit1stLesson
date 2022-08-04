@@ -11,7 +11,7 @@ import Foundation
 struct Person: Codable {
     let name, address: String
     let latitude, longitude: Double
-    let maidenName, birthData, phoneH, phoneW: String
+    let maidenName, birthDate, phoneH, phoneW: String
     let emailU, emailD, username, password: String
     let domain, useragent, ipv4, macaddress: String
     let plasticcard, cardexpir: String
@@ -26,7 +26,7 @@ struct Person: Codable {
     enum CodingKeys: String, CodingKey {
         case name, address, latitude, longitude
         case maidenName = "maiden_name"
-        case birthData = "birth_data"
+        case birthDate = "birth_data"
         case phoneH = "phone_h"
         case phoneW = "phone_w"
         case emailU = "email_u"

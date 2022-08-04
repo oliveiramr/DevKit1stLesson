@@ -7,11 +7,12 @@
 
 import UIKit
 
-class MainView: UIView {
+class MainView: UIView, UITableViewDelegate {
     
     init(){
         super.init(frame: .zero)
         
+        setupNavigationBar()
         setupTableView()
         setupActivityView()
     }
@@ -25,6 +26,15 @@ class MainView: UIView {
     
     let activityView = UIActivityIndicatorView()
     
+    private let navigBar: UINavigationBar = {
+        let navigBar = UINavigationBar()
+        let navItem = UINavigationItem(title: "Contatos")
+        navItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: nil, action: #selector(MainViewController.reloadRequestData))
+        navItem.rightBarButtonItem?.tintColor = .black
+        navigBar.setItems([navItem], animated: true)
+        navigBar.prefersLargeTitles = true
+        return navigBar
+    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -37,11 +47,22 @@ class MainView: UIView {
     
 
     
+    private func setupNavigationBar(){
+        addSubview(navigBar)
+        navigBar.translatesAutoresizingMaskIntoConstraints = false
+        navigBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        navigBar.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        navigBar.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        
+        
+    }
+  
+    
     private func setupTableView(){
         
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: navigBar.bottomAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
