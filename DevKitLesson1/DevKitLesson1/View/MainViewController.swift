@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func reloadRequestData(){
+        mainView.tableView.isHidden = true
         mainView.activityView.startAnimating()
         viewModel.getNameList()
     }
@@ -74,5 +75,6 @@ extension MainViewController: MainViewModelDelegate {
     func didLoadedData() {
         mainView.tableView.reloadData()
         mainView.activityView.stopAnimating()
+        mainView.tableView.isHidden = false
     }
 }
