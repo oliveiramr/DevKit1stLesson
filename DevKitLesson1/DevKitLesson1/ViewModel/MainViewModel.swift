@@ -19,7 +19,7 @@ class MainViewModel {
     private let service = Service()
     var personList: [Person] = []
     
-   
+    
     
     
     
@@ -33,7 +33,7 @@ class MainViewModel {
             service.getData { (result: Result<Person, NetworkError>) in
                 switch result {
                 case .success(let success):
-                        
+                    
                     self.personList.append(success)
                     numberOfRequests += 1
                     

@@ -26,9 +26,9 @@ class MainView: UIView, UITableViewDelegate {
     
     let activityView = UIActivityIndicatorView()
     
-    private let navigBar: UINavigationBar = {
+    let navigBar: UINavigationBar = {
         let navigBar = UINavigationBar()
-        let navItem = UINavigationItem(title: "Contatos")
+        let navItem = UINavigationItem(title: "Contacts")
         navItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: nil, action: #selector(MainViewController.reloadRequestData))
         navItem.rightBarButtonItem?.tintColor = .black
         navigBar.setItems([navItem], animated: true)
@@ -45,7 +45,7 @@ class MainView: UIView, UITableViewDelegate {
     
     //MARK: FUNCTIONS
     
-
+    
     
     private func setupNavigationBar(){
         addSubview(navigBar)
@@ -56,7 +56,7 @@ class MainView: UIView, UITableViewDelegate {
         
         
     }
-  
+    
     
     private func setupTableView(){
         
