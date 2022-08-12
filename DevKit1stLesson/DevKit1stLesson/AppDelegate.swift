@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  DevKitLesson1
+//  DevKit1stLesson
 //
-//  Created by Murilo Ribeiro de Oliveira on 03/08/22.
+//  Created by Murilo Ribeiro de Oliveira on 12/08/22.
 //
 
 import UIKit
